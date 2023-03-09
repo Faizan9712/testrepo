@@ -24,6 +24,10 @@ app.get("/", (req, res) => {
   res.json({ message: "hey Faizn!" });
 });
 
+app.get("/test", (req, res) => {
+  res.json({ message: "Testing!!!!!!!!!!!!" });
+});
+
 app.get("/learners", (req, res) => {
   console.log("Getting learners");
   mysqlConnection.query("SELECT * FROM learnerdetails", (err, rows, fields) => {
