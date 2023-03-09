@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 5001;
+var fs = require("fs");
 var mysqlConnection = require("./database");
 
 const bodyparser = require("body-parser");
@@ -12,9 +13,16 @@ app.get("/test", (req, res) => {
   res.json({ message: "Testing!!!!!!!!!!!!" });
 });
 
-// app.get("/", (req, res) => {
-//   res.json({ message: "hey Faizn!" });
-// });
+app.get("/pic", (req, res) => {
+  fs.readFile("./"+"1526546097669.jpg", function (err, data) {
+    if (err) {
+      console.log(err);
+      res.json("wait");
+    } // Fail if the file can't be read.
+    // res.writeHead(200, { "Content-Type": contentType });
+    res.end(data); // Send the file data to the browser.
+  });
+});
 
 mysqlConnection.connect((err) => {
   if (!err) console.log("Connection Established Successfully");
