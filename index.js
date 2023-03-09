@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/learners", (req, res) => {
+  console.log("Getting learners");
   mysqlConnection.query("SELECT * FROM learnerdetails", (err, rows, fields) => {
     if (!err) res.json(rows);
     else console.log(err);
