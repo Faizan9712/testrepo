@@ -6,12 +6,12 @@ const bodyparser = require("body-parser");
 //Configuring express server
 app.use(bodyparser.json());
 
-app.get("/", (req, res) => {
-  res.json({ message: "hey Faizn!" });
-});
-
 app.get("/test", (req, res) => {
   res.json({ message: "Testing!!!!!!!!!!!!" });
+});
+
+app.get("/", (req, res) => {
+  res.json({ message: "hey Faizn!" });
 });
 
 //MySQL details
