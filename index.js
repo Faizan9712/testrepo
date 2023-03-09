@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const port = 5001;
-const mysql = require("mysql");
+var mysqlConnection = require("./database");
+
 const bodyparser = require("body-parser");
 //Configuring express server
+
 app.use(bodyparser.json());
 
 app.get("/test", (req, res) => {
@@ -12,15 +14,6 @@ app.get("/test", (req, res) => {
 
 app.get("/", (req, res) => {
   res.json({ message: "hey Faizn!" });
-});
-
-//MySQL details
-var mysqlConnection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "learner",
-  multipleStatements: true,
 });
 
 mysqlConnection.connect((err) => {
