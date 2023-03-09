@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 5001;
+const port = PORT || 5001;
 var mysqlConnection = require("./database");
 
 const bodyparser = require("body-parser");
