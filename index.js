@@ -8,9 +8,9 @@ const bodyparser = require("body-parser");
 
 app.use(bodyparser.json());
 
-// app.get("/test", (req, res) => {
-//   res.json({ message: "Testing!!!!!!!!!!!!" });
-// });
+app.get("/test", (req, res) => {
+  res.json({ message: "Testing!!!!!!!!!!!!" });
+});
 
 // app.get("/", (req, res) => {
 //   res.json({ message: "hey Faizn!" });
