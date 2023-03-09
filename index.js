@@ -8,20 +8,20 @@ const bodyparser = require("body-parser");
 
 app.use(bodyparser.json());
 
-app.get("/test", (req, res) => {
-  res.json({ message: "Testing!!!!!!!!!!!!" });
-});
+// app.get("/test", (req, res) => {
+//   res.json({ message: "Testing!!!!!!!!!!!!" });
+// });
 
-app.get("/", (req, res) => {
-  res.json({ message: "hey Faizn!" });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "hey Faizn!" });
+// });
 
 mysqlConnection.connect((err) => {
   if (!err) console.log("Connection Established Successfully");
   else console.log("Connection Failed!" + JSON.stringify(err, undefined, 2));
 });
 
-app.get("/learners", (req, res) => {
+app.get("/", (req, res) => {
   console.log("Getting learners");
   mysqlConnection.query("SELECT * FROM learnerdetails", (err, rows, fields) => {
     if (!err) res.json(rows);
