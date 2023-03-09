@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port =  5001;
+const port = 5001;
 var mysqlConnection = require("./database");
 
 const bodyparser = require("body-parser");
@@ -25,7 +25,10 @@ app.get("/", (req, res) => {
   console.log("Getting learners");
   mysqlConnection.query("SELECT * FROM learnerdetails", (err, rows, fields) => {
     if (!err) res.json(rows);
-    else console.log(err);
+    else {
+      res.json({ message: "Table Not found" });
+      console.log(err);
+    }
   });
 });
 
