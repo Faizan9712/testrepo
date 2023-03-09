@@ -6,6 +6,14 @@ const bodyparser = require("body-parser");
 //Configuring express server
 app.use(bodyparser.json());
 
+app.get("/", (req, res) => {
+  res.json({ message: "hey Faizn!" });
+});
+
+app.get("/test", (req, res) => {
+  res.json({ message: "Testing!!!!!!!!!!!!" });
+});
+
 //MySQL details
 var mysqlConnection = mysql.createConnection({
   host: "localhost",
@@ -18,14 +26,6 @@ var mysqlConnection = mysql.createConnection({
 mysqlConnection.connect((err) => {
   if (!err) console.log("Connection Established Successfully");
   else console.log("Connection Failed!" + JSON.stringify(err, undefined, 2));
-});
-
-app.get("/", (req, res) => {
-  res.json({ message: "hey Faizn!" });
-});
-
-app.get("/test", (req, res) => {
-  res.json({ message: "Testing!!!!!!!!!!!!" });
 });
 
 app.get("/learners", (req, res) => {
